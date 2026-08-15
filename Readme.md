@@ -1,6 +1,18 @@
-# DeltaForce-Locker —— 电脑端 + 手机端双平台原理验证
+# DeltaForce-OBS-Locker —— 电脑端和手机端均有（S10赛季实测可用）
 
-> 🎉 为庆祝 2026 年高考圆满落幕，本项目特别开源手机端完整代码及 APK，供大家学习与交流使用！
+> **🆕 最新更新（2026-08-15）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发。
+
+<div align="center">
+  <img src="https://raw.githubusercontent.com/ace-trump-tech/DeltaForce-Locker/main/Mobile/Protective_suit.jpg" alt="核电站AZ3容器防护服样本" width="400">
+  <br>
+  <em>△ 核电站AZ3地图中的容器防护服（V3版本曾误判为真人）</em>
+</div>
+
+> **🧠 识别逻辑增强**：在视觉识别管线中新增了特定轮廓过滤层，确保容器防护服不再参与目标锁定计算，大幅提升复杂场景下的识别纯净度。
+
+---
+
+### 🎉 为庆祝 2026 年高考出分，本项目特别开源手机端项目，欢迎大家报考计算机专业！
 
 > 💬 **技术交流邀请**  
 > 本项目曾尝试通过 **ACE反作弊软件** 实现一种画面吸附效果的原理验证，实测发现该方案受游戏版本、系统环境等因素影响极大，不具备稳定复现的条件。  
@@ -8,24 +20,10 @@
 
 ---
 
-## 🆕 最新更新（2026-06-27）
-
-- **🎯 S10赛季新地图适配（核电站AZ3）**：针对新地图中新增的"容器防护服"进行了专项隔离处理。此前V3版本模型易将该类防护服误判为真人目标，V4版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发。
-
-  <div align="center">
-    <img src="https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Mobile/Protective_suit.jpg?raw=true" alt="核电站AZ3容器防护服样本" width="400">
-    <br>
-    <em>△ 核电站AZ3地图中的容器防护服（V3版本曾被误判为真人）</em>
-  </div>
-
-- **🧠 识别逻辑增强**：在视觉识别管线中新增了特定轮廓过滤层，确保容器防护服不再参与目标锁定计算，大幅提升复杂场景下的识别纯净度。
-
----
-
 ## 🎥 手机端功能演示
 
 <div align="center">
-  <img src="./Mobile/demo_video.gif" alt="手机端功能演示" width="400">
+  <img src="https://raw.githubusercontent.com/ace-trump-tech/DeltaForce-Locker/main/Mobile/demo_video.gif" alt="手机端功能演示" width="400">
   <br>
   <em>手机端 APK 核心效果（画面吸附 / 模拟输入演示）</em>
 </div>
@@ -36,7 +34,7 @@
 
 请按照以下三步操作：
 
-![Star -> Fork -> Download 流程示意图](./Mobile/demo.png)
+![Star -> Fork -> Download 流程示意图](https://raw.githubusercontent.com/ace-trump-tech/DeltaForce-Locker/main/Mobile/demo.png)
 
 1. **⭐ Star**  
    点击本仓库右上角的 **Star** 按钮，申请自己的使用权限。
@@ -47,18 +45,23 @@
 3. **⬇️ Download**  
    在你自己 Fork 后的仓库页面，点击 **Code → Download ZIP** 下载压缩包。  
 
-> 💡 **电脑端** 代码位于 `Desktop/` 文件夹，**手机端** 代码位于 `Mobile/` 文件夹。下载后请根据对应子项目的 README 进行操作。
+> 💡 **电脑端** 代码位于 `desktop/` 文件夹，**手机端** 脚本位于 `mobile/` 文件夹。下载后请根据对应子项目的 README 进行操作。
+> 
+> 若下载后的项目其中存在空文件，请检查是否严格以上三步进行操作
 
-> **请务分区分开DeltaForce-Locker与DeltaForce-OBS-Locker两个项目**
+> ⚠️ **重要提醒**：无论电脑端还是手机端，AI 识别功能都依赖 **YOLOv14 预训练权重文件**。  
+> **请务必先前往以下链接下载权重文件**，否则后续运行会因缺少模型而失败：  
+> 👉 **[https://github.com/zhangcbb/yolov14](https://github.com/zhangcbb/yolov14)**  
+> 下载后请根据电脑端或手机端的 README 指引放置权重文件（具体配置方法请参考各子项目的说明文档）。
 
 ---
 
 ## 📚 完整教程（必读）
 
 > **👉 [三角洲行动腾讯管家吸附原理 & 本项目 v3 版本介绍](https://blog.csdn.net/qq_63129682/article/details/161447283)**
-
+> 
 > **👉 [手把手教你注册GitHub账号](https://blog.csdn.net/qq_63129682/article/details/161460238)**
-
+> 
 > **👉 [从零开始：两种主流方式轻松部署Python开发环境](https://blog.csdn.net/qq_63129682/article/details/161473936?spm=1001.2014.3001.5501)**
 
 **请务必先阅读以上三篇教程**，它们包含了本项目的原理讲解、环境配置、常见问题解决等核心内容。
@@ -71,27 +74,36 @@
 
 | 子项目 | 主要技术栈 | 适合人群 | 详细文档 |
 |--------|-----------|----------|----------|
-| **电脑端** | Python, OpenCV, OBS, SendInput | Python 初学者、计算机视觉爱好者 | [电脑端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Desktop/README.md) |
+| **电脑端** | Python, OpenCV, YOLOv14, OBS, SendInput | Python 初学者、计算机视觉爱好者 | [电脑端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/desktop/Readme.md)|
 | **手机端** | Python 下载脚本 + APK | 普通用户、Android 测试者 | [手机端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Mobile/README.md) |
 
-> 💡 **电脑端** 提供从零开始的 Python 编程实战教程（本地代码结构解析）；  
+> 💡 **电脑端** 提供从零开始的 Python 编程实战教程（本地代码结构解析），其中 OBS 画面吸附功能正是基于 **YOLOv14** 目标检测框架实现；  
 > **手机端** 提供 APK 自动下载脚本。
+
+---
+
+## 🧠 YOLOv14：跨域实时目标检测框架
+
+**YOLOv14** 是专为 **非理想成像条件** 设计的实时目标检测框架[reference:10][reference:11]。与假设标准针孔相机的传统 YOLO 不同，YOLOv14 通过学习 **域不变、视角鲁棒** 的特征，在游戏角色检测上表现出色。
+
+传统的 YOLO 模型在处理游戏画面时，往往难以将游戏角色准确识别为“人”。YOLOv14 通过 **Game2Real 域适配** 技术，对齐游戏渲染域与真实摄影域的特征分布，使模型在《三角洲行动》、《使命召唤》、《绝地求生》等游戏中，能够稳定地将游戏角色识别为“人”，为画面吸附功能提供了可靠的检测基础。
+> 详细的技术架构、模型训练与推理指南，请参见本仓库的 [`yolov14/`](./yolov14) 目录。
 
 ---
 
 ## 🚨 版本更新通知（V4.0.0）
 
-- 截至 **2026年6月27日**，本项目V4版本代码逻辑在本机测试环境中已针对S10赛季核电站AZ3地图完成初步验证；若因后续游戏更新导致原理验证失效，将在本仓库第一时间同步说明。  
+- 本项目V4版本代码逻辑在本机测试环境中已针对S10赛季核电站AZ3地图完成初步验证；若因后续游戏更新导致原理验证失效，将在本仓库第一时间同步说明。  
 - 近期出现部分仿制或旧版本项目流传，请认准 **ace-trump-tech** 仓库。本项目始终免费开源，**任何收费行为均与项目初衷无关**。  
 
 ### ✅ V4.0.0 新特性
-- **🗺️ 核电站AZ3地图专项优化**：针对新地图中的"容器防护服"进行非人标注与隔离，彻底解决V3版本将防护服误判为真人目标的问题。
-- **🪟 腾讯管家吸附原理验证**（继承自V3）：演示通过模拟腾讯管家窗口置顶与鼠标穿透技术，实现"画面吸附"效果（环境依赖，仅用于研究）。
+- **🗺️ 核电站AZ3地图专项优化**：针对新地图中的“容器防护服”进行非人标注与隔离，彻底解决V3版本将防护服误判为真人目标的问题。
+- **🪟 腾讯管家吸附原理验证**（继承自V3）：演示通过模拟腾讯管家窗口置顶与鼠标穿透技术，实现“画面吸附”效果（环境依赖，仅用于研究）。
 
 ### ✅ 继承自 V3.0.0 的技术改进
 - **动态路径隐藏演示**：动态加密 + 随机目录名，展示规避静态特征扫描的思路。
 - **视觉中心模拟头部**：利用手电筒光斑视觉中心作为目标点。
-- **强化人物判定模型**：优化视觉特征识别，多帧投票降噪。
+- **强化人物判定模型**：优化 YOLOv14 骨骼点识别，多帧投票降噪。
 
 > ⚠️ **重要声明**：本插件 **不修改任何游戏内存**，仅使用公开的图像识别与模拟输入 API。  
 > **🔬 本版本仅供技术学习者对比研究，不建议在任何真实游戏对局中使用。**
@@ -102,7 +114,7 @@
 
 | 版本 | 主要技术演进 | 学习重点 |
 |------|-------------|----------|
-| **V1.x** | 基础图像识别 + OBS 捕获 + 简单鼠标移动 | OpenCV、图像处理、模拟输入入门 |
+| **V1.x** | 基础 YOLO 检测 + OBS 捕获 + 简单鼠标移动 | OpenCV、YOLO推理、模拟输入入门 |
 | **V2.x** | 动态路径隐藏、Base64编码、光斑视觉中心算法 | 反静态检测、坐标变换、多帧投票 |
 | **V3.x** | 腾讯管家吸附原理验证、兼容性探讨 | 窗口穿透技术、输入模拟边界、环境适配 |
 | **V4.x** | **S10赛季专项优化（核电站AZ3）** | **容器防护服隔离、非人目标标注、复杂场景误报抑制** |
@@ -113,12 +125,12 @@
 
 ## 🔥 项目定位
 
-- **电脑端**：基于真实游戏画面的 Python 编程实战项目，涵盖环境配置、图像处理、模拟输入、反检测演示等。  
+- **电脑端**：基于真实游戏画面的 Python 编程实战项目，涵盖环境配置、图像处理、目标检测、模拟输入、反检测演示等。其中 **OBS 吸附功能正是 YOLOv14 框架的一次具体实践**。  
 - **手机端**：提供 APK 文件及自动下载脚本，方便在 Android 设备上测试原理验证效果。
 
 👉 详细代码结构与本地运行说明请分别查看：
-- [电脑端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Desktop/README.md)
-- [手机端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Mobile/README.md)
+- [电脑端 README（本地代码解析）](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/desktop/Readme.md)
+- [手机端 README（APK 下载）](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Mobile/README.md)
 
 ---
 
@@ -131,6 +143,6 @@ MIT License —— 可自由修改、二次开发，但**严禁用于任何商�
 ## ⭐ 支持项目
 
 如果你通过本项目学到了技术知识，请给仓库点一个 **Star**。  
-你的星星，是对"用技术教学代替作弊工具"这一理念的认同。
+你的星星，是对“用技术教学代替作弊工具”这一理念的认同。
 
-*最后更新：2026-06-27*
+*最后更新：2026-08-15*
