@@ -43,7 +43,7 @@
 
 > ⚠️ **重要提醒**：无论电脑端还是手机端，AI 识别功能都依赖 **YOLOv14 预训练权重文件**。  
 > **请务必先前往以下链接下载最新的模型权重文件**，否则后续运行会因缺少模型而失败，8月25日之前已经下载好的需要进行更新：  
-> 👉 ****  
+> 👉 [**yolo-omni官方链接点击跳转**](https://github.com/z637826/yolo-omni)  
 > 下载后请根据电脑端或手机端的 README 指引放置权重文件（具体配置方法请参考各子项目的说明文档）。
 
 ---
@@ -66,7 +66,7 @@
 
 | 子项目 | 主要技术栈 | 适合人群 | 详细文档 |
 |--------|-----------|----------|----------|
-| **电脑端** | Python, OpenCV, YOLOv14, OBS, SendInput | Python 初学者、计算机视觉爱好者 | [电脑端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/desktop/Readme.md)|
+| **电脑端** | Python, OpenCV, YOLO-omni, OBS, SendInput | Python 初学者、计算机视觉爱好者 | [电脑端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/desktop/Readme.md)|
 | **手机端** | Python 下载脚本 + APK | 普通用户、Android 测试者 | [手机端 README](https://github.com/ace-trump-tech/DeltaForce-Locker/blob/main/Mobile/README.md) |
 
 > 💡 **电脑端** 提供从零开始的 Python 编程实战教程（本地代码结构解析），其中 OBS 画面吸附功能正是基于 **YOLOv14** 目标检测框架实现；  
