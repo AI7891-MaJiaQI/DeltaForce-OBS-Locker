@@ -2,7 +2,7 @@
 
 [![GitHub Stars](https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members)
 
-> **🆕 最新更新（2026-08-26）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
+> **🆕 最新更新（{{DATE}}）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ace-trump-tech/DeltaForce-Locker/main/Mobile/Protective_suit.jpg" alt="核电站AZ3容器防护服样本" width="400">
@@ -138,19 +138,45 @@ MIT License —— 可自由修改、二次开发，但**严禁用于任何商�
 如果你通过本项目学到了技术知识，请给仓库点一个 **Star**。  
 你的星星，是对“用技术教学代替作弊工具”这一理念的认同。
 
-*最后更新：2026.08.26*
+---
 
-## YOLO-omni 依赖
+## ⏰ 自动更新说明
 
-本项目将 [z637826/yolo-omni](https://github.com/z637826/yolo-omni) 作为 Git submodule 固定引入到 `third_party/yolo-omni`，便于复现实验环境。请使用递归克隆：
+本 README 中的 **`{{DATE}}`** 占位符会由 GitHub Actions 工作流自动替换为 UTC 时间的实际日期（格式：`YYYY-MM-DD`），**无需手动修改**。
 
-```bash
-git clone --recurse-submodules https://github.com/ace-trump-tech/DeltaForce-OBS-Locker.git
+你需要在仓库中创建 `.github/workflows/update-readme.yml` 文件，内容如下（可复制使用）：
+
+```yaml
+name: Update README Date
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 每天 UTC 00:00 触发
+  workflow_dispatch:       # 支持手动触发
+
+jobs:
+  update-date:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Replace placeholder with current date
+        run: |
+          DATE=$(date '+%Y-%m-%d')
+          sed -i "s/{{DATE}}/${DATE}/g" README.md
+
+      - name: Commit and push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md
+          git diff --staged --quiet || git commit -m "chore: update README date to ${DATE}"
+          git push
 ```
 
-已有仓库可执行：
+> 💡 该工作流每天运行一次，会自动替换 `{{DATE}}` 为当天的日期并提交。如果你希望改为每次 push 后都更新，可将 `on.schedule` 替换为 `on: push`。
 
-```bash
-git submodule update --init --recursive
-```
+---
 
+*最后手动更新：2026.08.26*
