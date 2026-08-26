@@ -10,12 +10,6 @@
   </a>
 </p>
 
-<p align="center">
-  <a href="https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/commits/main">
-    <img src="https://img.shields.io/github/last-commit/ace-trump-tech/DeltaForce-OBS-Locker?label=最后更新&color=blue&style=flat-square" alt="最后更新时间">
-  </a>
-</p>
-
 > **🆕 最新更新**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
 
 <div align="center">
