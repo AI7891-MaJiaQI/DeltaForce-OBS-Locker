@@ -84,6 +84,45 @@
 
 ---
 
+## 🧰 主仓库运行问题？使用独立备用仓库
+
+如果主仓库下载不完整、目录结构不清晰，或者你只想复现某一个端，可以直接使用下面两个独立仓库。它们保留了对应端的代码、README 和运行依赖，适合单独克隆和安装。
+
+### 电脑端：deltaforce-pc
+
+[![进入 deltaforce-pc](https://img.shields.io/badge/PC-deltaforce--pc-3776AB?logo=github&logoColor=white)](https://github.com/ace-trump-tech/deltaforce-pc)
+
+```bash
+git clone https://github.com/ace-trump-tech/deltaforce-pc.git
+cd deltaforce-pc
+python -m venv .venv
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python gui.py
+```
+
+Windows 用户可直接参考 [deltaforce-pc README](https://github.com/ace-trump-tech/deltaforce-pc/blob/main/README.md) 中的 PowerShell 命令。模型权重、Windows 权限和本地配置仍需按该 README 单独准备。
+
+### 手机端：deltaforce-mobile
+
+[![进入 deltaforce-mobile](https://img.shields.io/badge/Mobile-deltaforce--mobile-34A853?logo=github&logoColor=white)](https://github.com/ace-trump-tech/deltaforce-mobile)
+
+```bash
+git clone https://github.com/ace-trump-tech/deltaforce-mobile.git
+cd deltaforce-mobile
+python -m venv .venv
+python -m pip install --upgrade pip
+python -m pip install -r requirements.txt
+python download_apk.py --repo-id <owner>/<repo> --filename <path/to/file.apk>
+```
+
+Mobile 仓库不会硬编码未经验证的 APK 地址，运行下载命令时必须填写 Hugging Face 仓库和文件路径。下载完成后，请先检查发布者提供的校验和和签名，再决定是否安装到手机。详细参数见 [deltaforce-mobile README](https://github.com/ace-trump-tech/deltaforce-mobile/blob/main/README.md)。
+
+> **说明**：两个备用仓库提供的是更清晰的独立安装入口，不代表可以绕过系统、游戏或 Android 安全策略；遇到依赖、权限或模型问题，请优先查看对应仓库的“常见问题”。
+
+---
+
+
 ## 🧠 YOLO-omni：跨域实时目标检测框架
 
 **YOLO-omni** 是专为 **非理想成像条件** 设计的实时目标检测框架。与假设标准针孔相机的传统 YOLO 不同，YOLO-omni  通过学习 **域不变、视角鲁棒** 的特征，在游戏角色检测上表现出色。
