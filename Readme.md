@@ -1,6 +1,6 @@
-# DeltaForce-OBS-Locker
+# DeltaForce-OBS-Locker —— 电脑端和手机端均有（S10赛季实测可用）
 
-[![GitHub Stars](https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members) —— 电脑端和手机端均有（S10赛季实测可用）
+[![GitHub Stars](https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members)
 
 > **🆕 最新更新（2026-08-26）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
 
