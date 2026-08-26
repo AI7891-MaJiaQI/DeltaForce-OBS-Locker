@@ -1,8 +1,22 @@
 # DeltaForce-OBS-Locker —— 电脑端和手机端均有（S10赛季实测可用）
 
-[![GitHub Stars](https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members)
+<p align="center">
+  <a href="https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers">
+    <img src="https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social" alt="GitHub Stars">
+  </a>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members">
+    <img src="https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social" alt="GitHub Forks">
+  </a>
+</p>
 
-> **🆕 最新更新（{{DATE}}）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
+<p align="center">
+  <a href="https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/commits/main">
+    <img src="https://img.shields.io/github/last-commit/ace-trump-tech/DeltaForce-OBS-Locker?label=最后更新&color=blue&style=flat-square" alt="最后更新时间">
+  </a>
+</p>
+
+> **🆕 最新更新**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
 
 <div align="center">
   <img src="https://raw.githubusercontent.com/ace-trump-tech/DeltaForce-Locker/main/Mobile/Protective_suit.jpg" alt="核电站AZ3容器防护服样本" width="400">
@@ -78,7 +92,7 @@
 
 ## 🧠 YOLO-omni：跨域实时目标检测框架
 
-**YOLO-omni** 是专为 **非理想成像条件** 设计的实时目标检测框架[reference:10][reference:11]。与假设标准针孔相机的传统 YOLO 不同，YOLO-omni  通过学习 **域不变、视角鲁棒** 的特征，在游戏角色检测上表现出色。
+**YOLO-omni** 是专为 **非理想成像条件** 设计的实时目标检测框架。与假设标准针孔相机的传统 YOLO 不同，YOLO-omni  通过学习 **域不变、视角鲁棒** 的特征，在游戏角色检测上表现出色。
 
 传统的 YOLO 模型在处理游戏画面时，往往难以将游戏角色准确识别为“人”。YOLO-omni通过 **Game2Real 域适配** 技术，对齐游戏渲染域与真实摄影域的特征分布，使模型在《三角洲行动》、《使命召唤》、《绝地求生》等游戏中，能够稳定地将游戏角色识别为“人”，为画面吸附功能提供了可靠的检测基础。
 
@@ -139,44 +153,3 @@ MIT License —— 可自由修改、二次开发，但**严禁用于任何商�
 你的星星，是对“用技术教学代替作弊工具”这一理念的认同。
 
 ---
-
-## ⏰ 自动更新说明
-
-本 README 中的 **`{{DATE}}`** 占位符会由 GitHub Actions 工作流自动替换为 UTC 时间的实际日期（格式：`YYYY-MM-DD`），**无需手动修改**。
-
-你需要在仓库中创建 `.github/workflows/update-readme.yml` 文件，内容如下（可复制使用）：
-
-```yaml
-name: Update README Date
-
-on:
-  schedule:
-    - cron: '0 0 * * *'   # 每天 UTC 00:00 触发
-  workflow_dispatch:       # 支持手动触发
-
-jobs:
-  update-date:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Replace placeholder with current date
-        run: |
-          DATE=$(date '+%Y-%m-%d')
-          sed -i "s/{{DATE}}/${DATE}/g" README.md
-
-      - name: Commit and push if changed
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add README.md
-          git diff --staged --quiet || git commit -m "chore: update README date to ${DATE}"
-          git push
-```
-
-> 💡 该工作流每天运行一次，会自动替换 `{{DATE}}` 为当天的日期并提交。如果你希望改为每次 push 后都更新，可将 `on.schedule` 替换为 `on: push`。
-
----
-
-*最后手动更新：2026.08.26*
