@@ -1,0 +1,4 @@
+[submodule "third_party/yolo-omni"]
+	path = third_party/yolo-omni
+	url = https://github.com/z637826/yolo-omni.git
+	branch = main

@@ -1,4 +1,6 @@
-# DeltaForce-OBS-Locker —— 电脑端和手机端均有（S10赛季实测可用）
+# DeltaForce-OBS-Locker
+
+[![GitHub Stars](https://img.shields.io/github/stars/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/stargazers) [![GitHub Forks](https://img.shields.io/github/forks/ace-trump-tech/DeltaForce-OBS-Locker?style=social)](https://github.com/ace-trump-tech/DeltaForce-OBS-Locker/network/members) —— 电脑端和手机端均有（S10赛季实测可用）
 
 > **🆕 最新更新（2026-08-26）**：针对 S10 赛季新地图“核电站 AZ3”中新增的“容器防护服”进行了专项隔离处理。此前 V3 版本模型易将该类防护服误判为真人目标，V4 版本中已通过专属特征标注将其单独归类为非人单位，有效消除误触发，**并且采用yolov14原团队的最新模型yolo-omni进行部署，实战延迟同比降低70%！**
 
@@ -137,3 +139,18 @@ MIT License —— 可自由修改、二次开发，但**严禁用于任何商�
 你的星星，是对“用技术教学代替作弊工具”这一理念的认同。
 
 *最后更新：2026.08.26*
+
+## YOLO-omni 依赖
+
+本项目将 [z637826/yolo-omni](https://github.com/z637826/yolo-omni) 作为 Git submodule 固定引入到 `third_party/yolo-omni`，便于复现实验环境。请使用递归克隆：
+
+```bash
+git clone --recurse-submodules https://github.com/ace-trump-tech/DeltaForce-OBS-Locker.git
+```
+
+已有仓库可执行：
+
+```bash
+git submodule update --init --recursive
+```
+
